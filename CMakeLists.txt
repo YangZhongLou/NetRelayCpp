@@ -27,6 +27,10 @@ IF(MSVC)
 	link_directories(${CMAKE_SOURCE_DIR}/externals/boost_1_66_0/stage_x64/lib)
 ENDIF(MSVC)
 
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+	link_directories(${CMAKE_SOURCE_DIR}/externals/boost_1_66_0/stage/lib)
+endif()
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/")
 
 add_subdirectory(src)
