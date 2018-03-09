@@ -23,7 +23,7 @@ int main()
 
 	ip::tcp::socket new_socket(ioService);
 	ip::tcp::resolver resolver(ioService);
-	ip::tcp::resolver::query query("www.baidu.com", "http");
+	ip::tcp::resolver::query query("www.google.com", "http");
 	ip::tcp::resolver::iterator iter = resolver.resolve(query);
 
 	new_socket.connect(*iter);
@@ -31,7 +31,7 @@ int main()
 	std::cout << "connect" << std::endl;
 
 	std::string r =
-      "GET / HTTP/1.1\r\nHost: www.baidu.com\r\n\r\n";
+      "GET / HTTP/1.1\r\nHost: www.google.com\r\n\r\n";
 	new_socket.write_some(buffer(r));
 	auto size = new_socket.read_some(buffer(bytes));
 	std::cout << "read_some" << std::endl;
