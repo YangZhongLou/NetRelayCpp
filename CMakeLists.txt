@@ -28,6 +28,9 @@ IF(MSVC)
 ENDIF(MSVC)
 
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+	find_library(boost_libs NAMES libboost_system.a PATHS ${CMAKE_SOURCE_DIR}/externals/boost_1_66_0/stage/lib)
+
+	message("#################### boost_libs:${boost_libs},path:${CMAKE_SOURCE_DIR}")
 	link_directories(${CMAKE_SOURCE_DIR}/externals/boost_1_66_0/stage/lib)
 endif()
 
